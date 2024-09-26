@@ -32,7 +32,7 @@ public class AboutMe {
 		System.out.format("\n  Friday:%16s%19s%10S%18s%18s","\t9:00-10:15\t|","10:20-11:40\t|","Lunch  |","12:40-1:55    |","2:00-3:15    |");
 		System.out.format("\n   Class:%22s%19s%10S%18s%18s","Computer Science\t|","Accounting\t|","Lunch  |","Chemistry    |","English     |");
 		System.out.println("\n______________________________________________________________________________________________________|");
-		
+
 	}
 
 }

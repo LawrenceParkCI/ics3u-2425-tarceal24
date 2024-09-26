@@ -11,12 +11,12 @@ public class HelloWorld {
 		// This prints hello to the system console
 		System.out.println("Hello World");
 		System.out.println("S");
-		
+
 		/*
 		 * This is a Block Comment
 		 * You can add notes on multiple lines
 		 */
-	
+
 	}
 
 }
