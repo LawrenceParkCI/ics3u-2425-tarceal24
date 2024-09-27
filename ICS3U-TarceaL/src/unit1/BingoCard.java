@@ -5,7 +5,10 @@ package unit1;
  * @author Luca Tarcea
  */
 public class BingoCard {
-
+	/**
+	 * Entry point to the program.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		//This prints the rules to the console
 		System.out.println("BINGO CARD\n");

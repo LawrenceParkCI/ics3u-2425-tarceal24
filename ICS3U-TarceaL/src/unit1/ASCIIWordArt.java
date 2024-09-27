@@ -5,7 +5,10 @@ package unit1;
  * @author Luca Tarcea
  */
 public class ASCIIWordArt {
-
+	/**
+	 * Entry point to the program.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		//This prints my signature/word art to the console
 		System.out.println("          _____     _____                    _____                    _____                        _____                    _____                    _____                    _____                    _____                    _____          ");
