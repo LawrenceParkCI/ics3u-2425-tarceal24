@@ -29,7 +29,6 @@ public class CreatingVariables {
 		 * piece of information. - You can give this location a name - You can change
 		 * the information that the location holds. - You can recall the value of this
 		 * memory location later and use in different parts of your program
-		 * 
 		 */
 
 		System.out.println("Part 1");
