@@ -66,7 +66,7 @@ public class MathOperators {
 		 * statements to check your answer.
 		 */
 		System.out.println();
-		System.out.println(14%2);
+		System.out.println(14%4);
 		System.out.println(40%3);
 		System.out.println(17%5);
 		// I think % means: find the remainder
