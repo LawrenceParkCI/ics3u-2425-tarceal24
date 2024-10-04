@@ -13,10 +13,11 @@ public class Alive {
 		int hours = 8;
 		int daysMonth = 30;
 		int months = 12;
-		int daysYear = (daysMonth*months);
+		int daysYear = 365;
+		int years;
 		int year,month,day;
 		int year2,month2,day2;
-		
+		years = (year2-year);
 		
 		System.out.println("Type in your birth year and <Enter>");
 		year = sc.nextInt();
@@ -32,6 +33,7 @@ public class Alive {
 		day2 = sc.nextInt();
 		System.out.format("Your birthday is %02d/%02d/%d",day,month,year);
 		System.out.format("\nToday's date is %02d/%02d/%d",day2,month2,year2);
+		years = (year2-year);
 
 	}
 
