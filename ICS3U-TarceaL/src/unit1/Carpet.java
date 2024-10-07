@@ -1,7 +1,9 @@
 package unit1;
 import java.util.Scanner;
 /**
- * 
+ * Description: Calculates and displays the cost of a carpet in a rectangular room.
+ * Date: 07/10/24
+ * @author Luca Tarcea
  */
 public class Carpet {
 /**

@@ -1,7 +1,9 @@
 package unit1;
 import java.util.Scanner;
 /**
- * 
+ * Description: Calculates and displays how many days you were alive and how many hours you have slept.
+ * Date: 07/10/24
+ * @author Luca Tarcea
  */
 public class Alive {
 /**

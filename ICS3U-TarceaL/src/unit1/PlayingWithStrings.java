@@ -1,11 +1,13 @@
 package unit1;
 import java.util.Scanner;
 /**
- * 
+ * Description: Displays different strings in a variety of ways.
+ * Date: 04/10/24
+ * @author Luca Tarcea
  */
 public class PlayingWithStrings {
 /**
- * 
+ * Entry point to the program.
  * @param args
  */
 	public static void main(String[] args) {

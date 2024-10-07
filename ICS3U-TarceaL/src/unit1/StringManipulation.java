@@ -1,7 +1,9 @@
 package unit1;
 import java.util.Scanner;
 /**
- * 
+ * Description: Displays any inputted string in a variety of ways.
+ * Date: 07/10/24
+ * @author Luca Tarcea
  */
 public class StringManipulation {
 /**

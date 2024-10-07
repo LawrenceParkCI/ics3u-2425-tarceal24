@@ -1,6 +1,8 @@
 package unit1;
 /**
- * 
+ * Description: Calculates and displays net pay.
+ * Date: 04/10/24
+ * @author Luca Tarcea
  */
 public class NetPay {
 /**
