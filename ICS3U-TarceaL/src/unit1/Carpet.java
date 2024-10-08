@@ -16,25 +16,28 @@ public class Carpet {
 	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
+
 		// Declaring variables
-		int carpet;
-		int length;
-		int width;
-		int cost;
-		
+		double carpet;
+		double length;
+		double width;
+		double cost;
+		double area;
+
 		// Scans and assigns variables
 		System.out.println("Type in the length of the room in metres and <Enter>");
-		length = sc.nextInt();
+		length = sc.nextDouble();
 		System.out.println("Type in the width of the room in metres and <Enter>");
-		width = sc.nextInt();
+		width = sc.nextDouble();
 		System.out.println("Type in the cost of the carpet per square-metre and <Enter>");
-		cost = sc.nextInt();
+		cost = sc.nextDouble();
 		// Calculates variables
-		carpet = length * width * cost;
-		
+		area = length * width;
+		carpet = area * cost;
+
 		// Prints final statement
-		System.out.println("The cost of the carpet is $" + carpet + ".");
+		System.out.println("\nThe size of the carpet is " + area + " m^2");
+		System.out.println("\nThe cost of the carpet is $" + carpet + ".");
 
 	}
 

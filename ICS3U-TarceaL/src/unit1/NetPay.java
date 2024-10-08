@@ -15,7 +15,7 @@ public class NetPay {
 	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
+
 		// Declaring variables
 		double netPay;
 		int hours = 40;

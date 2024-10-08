@@ -16,7 +16,7 @@ public class StringManipulation {
 	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
+
 		// Declaring variables
 		String sentence;
 		int length;
@@ -24,7 +24,7 @@ public class StringManipulation {
 		String first;
 		String last;
 		int space, space1;
-		
+
 		// Scans input and assigns variables
 		System.out.println("Type a sentence and <Enter>");
 		sentence = sc.nextLine();
@@ -34,11 +34,12 @@ public class StringManipulation {
 		space1 = sentence.lastIndexOf(" ");
 		first = sentence.substring(0, space);
 		last = sentence.substring(space1);
-		
+
 		// Prints the sentence and other information
 		System.out.println(sentence);
 		System.out.println(sentence.toUpperCase());
 		System.out.println(sentence.toLowerCase());
+		System.out.println(sentence.trim());
 		System.out.println("The sentence is " + length + " characters long.");
 		System.out.println("The character at index 5 is " + letter + ".");
 		System.out.println("The first word of the string is " + first + ".");
