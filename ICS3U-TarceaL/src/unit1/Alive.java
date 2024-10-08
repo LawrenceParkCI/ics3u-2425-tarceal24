@@ -6,12 +6,14 @@ import java.util.Scanner;
  * @author Luca Tarcea
  */
 public class Alive {
-/**
- * Entry point to the program.
- * @param args
- */
+	/**
+	 * Entry point to the program.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		
+		// Declaring variables
 		int daysMonth;
 		int years,months,days;
 		int daysYear;
@@ -19,21 +21,29 @@ public class Alive {
 		int year2,month2,day2;
 		int alive;
 		int sleep;
-		
+
+		// Scans date of birth and assigns variables
 		System.out.println("Type in your birth year and <Enter>");
 		year = sc.nextInt();
 		System.out.println("Type in your birth month and <Enter>");
 		month = sc.nextInt();
 		System.out.println("Type in your birth day and <Enter>");
 		day = sc.nextInt();
+		// Scans current date and assigns variables
 		System.out.println("Type in the current year and <Enter>");
 		year2 = sc.nextInt();
 		System.out.println("Type in the current month and <Enter>");
 		month2 = sc.nextInt();
 		System.out.println("Type in the current day and <Enter>");
 		day2 = sc.nextInt();
-		System.out.format("Your birthday is %02d/%02d/%4d",day,month,year);
+		
+		// Prints the two dates
+		System.out.format("\nYour birthday is %02d/%02d/%4d",day,month,year);
+		System.out.println();
 		System.out.format("\nToday's date is %02d/%02d/%4d",day2,month2,year2);
+		System.out.println();
+
+		// Calculates variables
 		years = year2-year;
 		months = month2-month;
 		days = day2-day;
@@ -41,8 +51,10 @@ public class Alive {
 		daysMonth = months*30;
 		alive = daysYear+daysMonth+days;
 		sleep = alive*8;
+		
+		// Prints final output
 		System.out.println("\nYou have been alive for "+alive+" days.");
-		System.out.println("You have been asleep for "+sleep+" hours.");
+		System.out.println("\nYou have been asleep for "+sleep+" hours.");
 
 	}
 
