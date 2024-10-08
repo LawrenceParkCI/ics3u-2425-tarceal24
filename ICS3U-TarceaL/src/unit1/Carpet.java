@@ -33,7 +33,7 @@ public class Carpet {
 		// Calculates variables
 		carpet = length * width * cost;
 		
-		// Prints final output
+		// Prints final statement
 		System.out.println("The cost of the carpet is $" + carpet + ".");
 
 	}

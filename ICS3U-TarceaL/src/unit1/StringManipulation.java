@@ -35,7 +35,7 @@ public class StringManipulation {
 		first = sentence.substring(0, space);
 		last = sentence.substring(space1);
 		
-		// Prints the input and other information
+		// Prints the sentence and other information
 		System.out.println(sentence);
 		System.out.println(sentence.toUpperCase());
 		System.out.println(sentence.toLowerCase());

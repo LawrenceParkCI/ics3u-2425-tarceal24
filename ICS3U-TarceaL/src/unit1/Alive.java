@@ -41,7 +41,7 @@ public class Alive {
 		System.out.println("Type in the current day and <Enter>");
 		day2 = sc.nextInt();
 
-		// Prints the two dates
+		// Prints information inputted
 		System.out.format("\nYour birthday is %02d/%02d/%4d", day, month, year);
 		System.out.println();
 		System.out.format("\nToday's date is %02d/%02d/%4d", day2, month2, year2);
@@ -56,7 +56,7 @@ public class Alive {
 		alive = daysYear + daysMonth + days;
 		sleep = alive * 8;
 
-		// Prints final output
+		// Prints final statements
 		System.out.println("\nYou have been alive for " + alive + " days.");
 		System.out.println("\nYou have been asleep for " + sleep + " hours.");
 
