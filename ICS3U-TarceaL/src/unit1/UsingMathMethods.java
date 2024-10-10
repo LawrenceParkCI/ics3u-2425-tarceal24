@@ -2,9 +2,9 @@ package unit1;
 import java.util.Scanner;
 
 /**
- * Description:
- * Date:
- * @author 
+ * Description: Practice using the math class methods
+ * Date: 10/10/24
+ * @author Luca Tarcea
  */
 public class UsingMathMethods {
 
