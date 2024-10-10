@@ -101,7 +101,9 @@ public class UsingMathMethods {
 		//8.0               2.8284271247461903   1.9861849908740719
 		
 		//Does your program give a different answer if 0.3333333 is input instead of 0.33 for the power?
-		
+		//Yes.
+		//REAL NUMBER       SQUARE ROOT          RAISED TO POWER 0.33333333
+		//8.0               2.8284271247461903   1.9999999861370563
 		
 		
 		
