@@ -28,6 +28,7 @@ public class StringManipulation {
 		// Scans input and assigns variables
 		System.out.println("Type a sentence and <Enter>");
 		sentence = sc.nextLine();
+		sc.close();
 		length = sentence.length();
 		letter = sentence.charAt(5);
 		space = sentence.indexOf(" ");
