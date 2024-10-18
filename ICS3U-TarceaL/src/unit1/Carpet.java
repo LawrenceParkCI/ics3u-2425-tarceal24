@@ -31,6 +31,7 @@ public class Carpet {
 		width = sc.nextDouble();
 		System.out.println("Type in the cost of the carpet per square-metre and <Enter>");
 		cost = sc.nextDouble();
+		sc.close();
 		// Calculates variables
 		area = length * width;
 		carpet = area * cost;
