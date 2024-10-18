@@ -56,6 +56,7 @@ public class NetPay {
 		scInsurance = sc.nextDouble();
 		System.out.println("Type in the percentage of pay taxed and <Enter>");
 		scTax = sc.nextDouble();
+		sc.close();
 		scTax = scTax / 100;
 
 		scNetPay = (scHours * scWage - scInsurance) - scTax * (scHours * scWage - scInsurance);
