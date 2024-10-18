@@ -73,6 +73,7 @@ public class Casting {
     Scanner in = new Scanner(System.in);
     System.out.println("Give me decimal number up to the hundredth");
     myNum = in.nextDouble();
+	in.close();
 
     System.out.print("Rounding down to the nearest tenth, it is: ");
     myNum = myNum*10;
