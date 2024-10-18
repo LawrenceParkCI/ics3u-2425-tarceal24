@@ -40,6 +40,7 @@ public class Alive {
 		month2 = sc.nextInt();
 		System.out.println("Type in the current day and <Enter>");
 		day2 = sc.nextInt();
+		sc.close();
 
 		// Prints information inputted
 		System.out.format("\nYour birthday is %02d/%02d/%4d", day, month, year);
