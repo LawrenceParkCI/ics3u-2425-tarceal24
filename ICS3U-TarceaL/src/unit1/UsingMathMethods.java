@@ -77,6 +77,7 @@ public class UsingMathMethods {
 		r = sc.nextDouble();
 		System.out.println("Type in a real number and <Enter>");
 		r2 = sc.nextDouble();
+		sc.close();
 		System.out.format("%-17S %-20S %10S", "real number", "square root", "raised to power " + r2);
 		System.out.println();
 		System.out.format("%-17S %-20S %10S", r, Math.sqrt(r), Math.pow(r, r2));
