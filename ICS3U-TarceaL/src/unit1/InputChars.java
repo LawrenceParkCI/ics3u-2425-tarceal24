@@ -20,6 +20,7 @@ public class InputChars {
 		System.out.print("Together these three letters spell: "+(ch1+ch2+ch3));
 		//System.out.println(ch1+ch2+ch3);
 
+		sc.close();
 	}
 
 }
