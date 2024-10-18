@@ -1,5 +1,5 @@
 package unit1;
-import java.util.Scanner;
+
 /**
  * Description: Displays different strings in a variety of ways.
  * Date: 04/10/24
