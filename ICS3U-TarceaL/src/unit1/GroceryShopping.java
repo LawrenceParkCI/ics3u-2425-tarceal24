@@ -10,7 +10,7 @@ public class GroceryShopping {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		String product;
+		String product, y;
 		double price , subPrice , totalPrice , tax;
 		int amount;
 		boolean x = true;
@@ -50,7 +50,20 @@ public class GroceryShopping {
 				System.out.format("%13s" , money.format(tax));
 				System.out.format("\n%44s" , "Total:");
 				System.out.format("%13s" , money.format(totalPrice));
-				System.out.println("\n" + money.format(Math.rint(totalPrice)));
+				y = String.valueOf((totalPrice * 100 % 10));
+				double b = Double.parseDouble(y);
+				
+				if(b < 2.5 || b > 7.5) {
+					System.out.println("\n" + money.format(Math.rint(totalPrice * 10)/10));
+					if()
+				}
+				else {
+					money = new DecimalFormat("$  0.05");
+					totalPrice = totalPrice - 0.1;
+					System.out.println("\n" + money.format(totalPrice));
+				}
+
+				
 
 			}
 		}
