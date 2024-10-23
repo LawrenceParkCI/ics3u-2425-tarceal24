@@ -10,9 +10,9 @@ public class GroceryShopping {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		String product;
+		String product = "";
 		double apple = 1.19 , banana = 0.79 , bread = 3.49;
-		int appleAmount = 1 , bananaAmount = 0 , breadAmount = 0;
+		int appleAmount = 0 , bananaAmount = 0 , breadAmount = 0;
 		double subPrice , totalPrice , tax;
 		double applePrice , bananaPrice , breadPrice;
 		double b;
@@ -21,16 +21,18 @@ public class GroceryShopping {
 
 
 		System.out.println("|| $$$ \\\\\\ ========== \"Mr. Tarcea's Grocery\" ========== /// $$$ ||");
-		System.out.println("Here is a list of what we have for sale:");
-		System.out.format("%10s %10s %10s" , "Apples" , "Bananas" , "Bread");
+		System.out.println("Here is a list of what we have for sale:"); //maybe change position
+		System.out.format("%10s %10s %10s" , "Apples" , "Bananas" , "Bread"); //add more options
 		while(x == true) {
-			product = "";
-			if(product == "Apples") {
-				System.out.print("\nWhat would you like to buy? ");
+			System.out.print("\nWhat would you like to buy? ");
+			if(product == "") {
 				product = sc.next();
-				appleAmount = sc.nextInt();
-				System.out.println(product);
-				System.out.println(product);
+				if(product == "Apples"){
+					appleAmount = sc.nextInt();
+					System.out.println(product);
+				}
+				
+				
 				if(product == "bread" || product == "Bread") {
 					breadAmount = sc.nextInt();
 					}
@@ -38,13 +40,10 @@ public class GroceryShopping {
 						if(product == "bananas" || product == "Bananas") {
 							bananaAmount = sc.nextInt();
 							}
-						else {
-							System.out.println("ERROR! \nPLEASE INPUT A PRODUCT FROM THE LIST")
-							}
 						}
 			}
-			else {	
-				
+			else {
+				System.out.println("ERROR! \nPLEASE INPUT A PRODUCT FROM THE LIST")
 
 			}
 			System.out.println(product);
