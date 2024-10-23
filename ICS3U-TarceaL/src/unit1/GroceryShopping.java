@@ -24,29 +24,32 @@ public class GroceryShopping {
 		System.out.println("Here is a list of what we have for sale:");
 		System.out.format("%10s %10s %10s" , "Apples" , "Bananas" , "Bread");
 		while(x == true) {
-			product = "ll";
-			if(product == "ll" || product == "Apples") {
+			product = "";
+			if(product == "Apples") {
 				System.out.print("\nWhat would you like to buy? ");
 				product = sc.next();
 				appleAmount = sc.nextInt();
 				System.out.println(product);
-			}
-			else {
-				
 				System.out.println(product);
+				if(product == "bread" || product == "Bread") {
+					breadAmount = sc.nextInt();
+					}
+					else {
+						if(product == "bananas" || product == "Bananas") {
+							bananaAmount = sc.nextInt();
+							}
+						else {
+							System.out.println("ERROR! \nPLEASE INPUT A PRODUCT FROM THE LIST")
+							}
+						}
 			}
-			
-			
-			
-			
+			else {	
+				
+
+			}
 			System.out.println(product);
 			System.out.print("How many are you buying? ");
-			if(product == "bananas" || product == "Bananas") {
-				bananaAmount = sc.nextInt();
-			}
-			if(product == "bread" || product == "Bread") {
-				breadAmount = sc.nextInt();
-			}
+			
 			//product = "Apples";
 			
 
