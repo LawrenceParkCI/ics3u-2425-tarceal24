@@ -1,7 +1,11 @@
 package unit1;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
+
 
 /**
  * Description: Grocery Shopping Application
@@ -14,6 +18,7 @@ public class GroceryShopping {
 	public static void main(String[] args) {
 		// Assigning global variables
 		Scanner sc = new Scanner(System.in);
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd\th:mm a");
 		String product;
 		String dollar = " $";
 		String payment;
@@ -25,7 +30,7 @@ public class GroceryShopping {
 		double centRounding;
 		DecimalFormat money = new DecimalFormat("0.00");
 		boolean running = true;
-
+		
 		System.out.println("|| $$$ \\\\\\ ========== \"Mr. Tarcea's Grocery\" ========== /// $$$ ||");
 		System.out.println("Here is a list of what we have for sale:");
 		System.out.format("%8s %12s %10s %9s %11s %9s", "Apples", "Bananas", "Bread", "Eggs", "Yogurt", "Milk");
@@ -71,7 +76,7 @@ public class GroceryShopping {
 		System.out.println("\nThank you.");
 		System.out.println("\nHere is your receipt:");
 		System.out.format("\n\n%37s", "Mr. Tarcea's Grocery");
-		System.out.format("\n%-1s %48s", "18/10/24", "11:39");
+		System.out.format("\n%-1s", df.format(new Date()));
 		System.out.format("\n\n%4s %13s", "Item\t\t|", "Price    |");
 		System.out.format("%13s %12s", "Quantity  |", "Total Price");
 		System.out.println("\n---------------------------------------------------------");
@@ -135,7 +140,6 @@ public class GroceryShopping {
 		centRounding = totalPrice * 100 % 10;
 		if (payment.equalsIgnoreCase("Cash")) {
 			if (centRounding < 2.5 || centRounding > 7.5) {
-				System.out.println(centRounding);
 				System.out.println("\nThat will be" + dollar + money.format(Math.rint(totalPrice * 10) / 10));
 			} else { // Adjust total if rounding favors the next nickel
 				if (centRounding > 5) {
