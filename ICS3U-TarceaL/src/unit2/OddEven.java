@@ -15,9 +15,10 @@ public class OddEven {
 	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		// Scan user input
 		System.out.println("Type an integer and <Enter>");
 		int num = sc.nextInt();
-		if (num % 2 == 0) {
+		if (num % 2 == 0) { // Tests if number is even
 			System.out.println(num + " is even.");
 		} else {
 			System.out.println(num + " is odd.");
