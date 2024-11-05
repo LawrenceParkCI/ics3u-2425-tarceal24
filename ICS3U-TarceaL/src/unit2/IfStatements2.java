@@ -3,8 +3,8 @@ package unit2;
 import java.util.Scanner;
 
 /**
- * Description: Date: 05/11/24
- * 
+ * Description: If else statement practice
+ * Date: 05/11/24
  * @author Luca Tarcea
  */
 
