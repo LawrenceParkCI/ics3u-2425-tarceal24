@@ -19,7 +19,7 @@ public class IfStatements1 {
 		System.out.println("----------");
 		if (firstNum > secondNum) {
 			System.out.println("KEKW");
-			System.out.println("OMEGLUL");
+			System.out.println("OMEGALUL");
 		}
 
 		// What prints out? Why?
