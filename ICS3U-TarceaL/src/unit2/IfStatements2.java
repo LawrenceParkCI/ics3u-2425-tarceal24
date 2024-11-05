@@ -9,6 +9,10 @@ import java.util.Scanner;
  */
 
 public class IfStatements2 {
+	/**
+	 * Entry point to the program.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// Scanner in = new Scanner(System.in);
 
