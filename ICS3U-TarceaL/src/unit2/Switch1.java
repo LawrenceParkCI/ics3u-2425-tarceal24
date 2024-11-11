@@ -3,12 +3,16 @@ package unit2;
 import java.util.Scanner;
 
 /**
- * Description: Date: 11/11/24
- * 
+ * Description: Checks day of the week
+ * Date: 11/11/24
  * @author Luca Tarcea
  */
 
 public class Switch1 {
+	/**
+	 * Entry point to the program.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 
