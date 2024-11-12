@@ -35,7 +35,7 @@ public class StringChallenge {
 			// casts int to string (implicit) and sees how far the user was from the goal
 		}
 
-		if (helloWorld.matches("[0123456789]")) { // converts string to int (explicit) if it contains a number
+		if (helloWorld.matches("[0-9]")) { // converts string to int (explicit) if it contains a number
 			int num = Integer.parseInt(helloWorld);
 			System.out.println(num + " is a number. Try again");
 		} else if (helloWorld.equalsIgnoreCase("hello world"))
