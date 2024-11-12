@@ -3,8 +3,8 @@ package unit2;
 import java.util.Scanner;
 
 /**
- * Description: 
- * Date: 11/11/24
+ * Description: Compares strings to hello world 
+ * Date: 12/11/24
  * @author Luca Tarcea
  */
 
@@ -26,12 +26,24 @@ public class StringChallenge {
 		 * Comment to explain: -when you use the different String functions -when you
 		 * are casting and how the value is changed
 		 */
-		System.out.println("Type in a sentence and <Enter>");
-		String str = sc.next();
-		System.out.println(str);
-		System.out.println(str.equals(""));
-		System.out.println(str.equalsIgnoreCase(""));
-		System.out.println(str.compareTo(""));
+		System.out.println("Type in \"Hello World\" in any way and <Enter>");
+		String helloWorld = sc.nextLine();
+		System.out.println("You typed " + helloWorld + ".");
+		if (!helloWorld.equals("hello world")) { // testing to see what print lines to run
+			System.out.println("You did not type \"hello world\".");
+			System.out.println("You were " + Math.abs(helloWorld.compareTo("hello world")) + " characters away.");
+			// casts int to string (implicit) and sees how far the user was from the goal
+		}
+
+		if (helloWorld.matches("[0123456789]")) { // converts string to int (explicit) if it contains a number
+			int num = Integer.parseInt(helloWorld);
+			System.out.println(num + " is a number. Try again");
+		} else if (helloWorld.equalsIgnoreCase("hello world"))
+			System.out.println("Good job!"); // testing for user success or failure
+		else if (helloWorld.compareToIgnoreCase("hello world") == 0)
+			System.out.println("Good job!"); // testing for user success or failure
+		else
+			System.out.println("You failed. Try again.");
 
 		sc.close();
 	}
