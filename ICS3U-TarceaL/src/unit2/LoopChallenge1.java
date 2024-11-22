@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * Description: Password checker
- * Date: 21/11/24
+ * Date: 22/11/24
  * @author Luca Tarcea
  */
 
@@ -24,13 +24,13 @@ public class LoopChallenge1 {
 		 */
 
 		Scanner sc = new Scanner(System.in);
-		String password;
+		String password = "";
 		int count = 0;
-		do {
+		while (!password.equals("HelloWorld") && count < 3) {
 			System.out.println("What is the password?");
 			password = sc.next();
 			count++;
-		} while (!password.equals("HelloWorld") && count < 3);
+		}
 
 		if (password.equals("HelloWorld"))
 			System.out.println("Correct password.");
