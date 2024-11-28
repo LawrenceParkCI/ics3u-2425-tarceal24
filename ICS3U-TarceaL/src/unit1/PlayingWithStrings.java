@@ -52,8 +52,8 @@ public class PlayingWithStrings {
 		//System.out.println(spaces);
 		//System.out.println(noSpaces);
 		
-		//String digits = "1234567890";
-		//System.out.println(digits.indexOf("6") + digits.indexOf("a"));
+		String digits = "1234567890";
+		System.out.println(digits.indexOf("6") + digits.indexOf("a"));
 		
 		//System.out.println("Ilovesandwiches".substring(5).length());
 		
