@@ -28,7 +28,7 @@ public class ChooseYourOwnAdventure2 {
 		boolean running = false, searchKey; // change running value
 		boolean retreat;
 
-		do { // loop to run the whole game again
+		 while (running == true) { // loop to run the whole game again
 
 			// Start of game
 			System.out.println("You have just woken up in a gloomy apartment building.. \n"
@@ -124,7 +124,7 @@ public class ChooseYourOwnAdventure2 {
 							if (boxCodeGuess == boxCode) {
 								System.out.println(
 										"You have guessed correctly and inside the box is a key to the entrance.\n" // edit
-												+ "You take it with you and rush to the entrance to escape, never to look back."); // survival
+										+ "You take it with you and rush to the entrance to escape, never to look back."); // survival
 								System.out.println("Would you like to play again? (True or False)");
 								running = sc.nextBoolean();
 
@@ -227,8 +227,8 @@ public class ChooseYourOwnAdventure2 {
 									}
 									System.out.println(
 											"The wall in front of you shimmers and slowly becomes translucent. Right before your eyes, it dissapears and in front of you, lies a tunnel.\n"
-											+ "You rush through it without a second thought as you hear the voice again in your head laughing. You are still clueless as to what is going on here, "
-											+ "but at least you escaped with your life.");
+													+ "You rush through it without a second thought as you hear the voice again in your head laughing. You are still clueless as to what is going on here, "
+													+ "but at least you escaped with your life.");
 									System.out.println("Would you like to play again? (True or False)");
 									running = sc.nextBoolean();
 								}
@@ -304,7 +304,7 @@ public class ChooseYourOwnAdventure2 {
 					running = sc.nextBoolean();
 				}
 			}
-		} while (running == true);
+		}
 		Thread.sleep(3000);
 		sc.close();
 	}
