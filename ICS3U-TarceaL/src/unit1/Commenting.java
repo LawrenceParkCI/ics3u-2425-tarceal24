@@ -77,7 +77,6 @@ public class Commenting {
     stringNum = stringNum + "; "; //52 -16.0;
     stringNum = stringNum + num1 + " " + num2;//52 -16.0; 26 -6.4
 
-
     /*
     * Variables Name    |   Value
     * ---------------------------------

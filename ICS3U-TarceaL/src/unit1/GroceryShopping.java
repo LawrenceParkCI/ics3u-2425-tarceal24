@@ -16,6 +16,11 @@ import java.util.Scanner;
 public class GroceryShopping {
 
 	public static void main(String[] args) {
+		/**
+		 * This is the entry point to the program.
+		 * 
+		 * @param args
+		 */
 		// Assigning global variables
 		Scanner sc = new Scanner(System.in);
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd\th:mm a");
@@ -141,7 +146,7 @@ public class GroceryShopping {
 		if (payment.equalsIgnoreCase("Cash")) {
 			if (centRounding < 2.5 || centRounding > 7.5) {
 				System.out.println("\nThat will be" + dollar + money.format(Math.rint(totalPrice * 10) / 10));
-			} else { // Adjust total if rounding favors the next nickel
+			} else { // Adjust total if rounding favours the next nickel
 				if (centRounding > 5) {
 					money = new DecimalFormat("$0.05");
 					totalPrice = totalPrice - 0.1; // Rounding down
