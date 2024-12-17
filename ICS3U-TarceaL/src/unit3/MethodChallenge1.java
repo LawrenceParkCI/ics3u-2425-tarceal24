@@ -1,8 +1,8 @@
 package unit3;
 
 /**
- * Description: Calculate the distance between two points 
- * Date: 13/12/24
+ * Description: Calculate the distance between two points Date: 13/12/24
+ * 
  * @author Luca Tarcea
  */
 
@@ -26,13 +26,13 @@ public class MethodChallenge1 {
 	}
 
 	/**
-	 * (Description)
+	 * Calculates the distance between any two points
 	 * 
-	 * @param x1 -> x value of 1st point
-	 * @param y1 -> y value of 1st point
-	 * @param x2 -> x value of 2nd point
-	 * @param y2 -> y value of 2nd point
-	 * @return
+	 * @param x1 -> x value of first point
+	 * @param y1 -> y value of first point
+	 * @param x2 -> x value of second point
+	 * @param y2 -> y value of second point
+	 * @return -> difference of points
 	 */
 	public static double distance(int x1, int y1, int x2, int y2) {
 		double a = Math.pow((x2 - x1), 2);
