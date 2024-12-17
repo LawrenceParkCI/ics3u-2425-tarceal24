@@ -1,10 +1,12 @@
 package unit3;
 
 /**
- * Description: Performs basic numeric operations such as arithmetic, square root, and exponential functions.
+ * Description: Performs basic numeric operations such as arithmetic, square
+ * root, and exponential functions.
  * Date: 17/12/24
  * @author Luca Tarcea
  */
+
 public class MathPlus {
 	/**
 	 * Entry point to the program.
