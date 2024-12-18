@@ -37,9 +37,9 @@ public class MathPlus {
 	/**
 	 * Description: Calculates the hypotenuse of two given side lengths
 	 * 
-	 * @param a
-	 * @param b
-	 * @return
+	 * @param a first side length
+	 * @param b second side length
+	 * @return hypotenuse of side lengths
 	 */
 	public static double hypotenuse(double a, double b) {
 		double c = distance((int) a, (int) b, 0, 0);
@@ -49,8 +49,8 @@ public class MathPlus {
 	/**
 	 * Description: Determines the number of factors in a given integer
 	 * 
-	 * @param num
-	 * @return
+	 * @param num integer
+	 * @return number of factors of integer
 	 */
 	public static int numOfFactors(int num) {
 		int factors = 0;
@@ -65,8 +65,8 @@ public class MathPlus {
 	/**
 	 * Description: Determines whether a given integer is prime
 	 * 
-	 * @param num operand
-	 * @return
+	 * @param num integer
+	 * @return if integer is prime or not
 	 */
 	public static boolean isPrime(int num) {
 		if (numOfFactors(num) == 2)
