@@ -3,6 +3,11 @@ package unit3;
 import hsa_new.Console;
 import java.awt.Color;
 
+/**
+ * Description: Runs a 2 player game of Connect 4
+ * Date: TBD
+ * @author Luca Tarcea
+ */
 public class CulminatingAssignment {
 	/**
 	 * Entry point to the program.
@@ -11,20 +16,22 @@ public class CulminatingAssignment {
 	static Console c;
 	public static void main(String[] args) {
 		c = new Console(30, 100, 15, "Connect4");
-		int turn = 1;
+		int player = 1;
 		boolean win = false;
 		boolean running = true;
 		gridDisplay();
 		while (running == true) {
-			c.print("Where would you like to place your token? ");
-			token(turn, columnCheck(c.readInt()), 440 - rowCheck(1));
-			if (turn == 1) {
-				turn = 2;
+			c.print("Player " + player + ". Where would you like to place your token? ");
+			token(player);
+			if (player == 1) {
+				player = 2;
 			} else {
-				turn = 1;
+				player = 1;
 			}
-			if (win)
+			if (win) {
+				c.println("Player " + player + " wins!");
 				running = false;
+			}
 		}
 	}
 
@@ -33,7 +40,6 @@ public class CulminatingAssignment {
 		for (int i = 0; i < 6; i++)
 			c.fillOval(xValue, yValue, 50, 50);
 	}
-
 
 	public static void gridDisplay() {
 		int[] x = {20, 90, 160, 230, 300, 370, 440};
@@ -46,7 +52,8 @@ public class CulminatingAssignment {
 		}
 	}
 
-	public static int rowCheck(int row) {
+	public static int rowCheck() {
+		int row = 0;
 		boolean[] row1 = new boolean[6];
 		for (int i = 0; i < row1.length; i++) {
 			if (!row1[i]) {
@@ -55,37 +62,25 @@ public class CulminatingAssignment {
 				break;
 			} else if (row1[i] && !row1[i+1]) {
 				row1[i+1] = true;
-				row = (i+1)*20;
+				row = i*50 + (i+1)*20;
 				break;
 			}
 		}
 		return row;
 	}
-	
+
 	public static int columnCheck(int column) {
-//		boolean[] row1 = new boolean[6];
-//		for (int i = 0; i < row1.length; i++) {
-//			if (!row1[i]) {
-//				row1[i] = true;
-//				column = (i+1)*20;
-//				break;
-//			} else if (row1[i] && !row1[i+1]) {
-//				row1[i+1] = true;
-//				column = (i+1)*20;
-//				break;
-//			}
-//		}
-		if (column < 8) {
+		if (column < 8 && column > 0)
 			return (column - 1)*70 + 20;
-		} else
+		else
 			return 0;
 	}
 
-	public static void token(int player, int column, int row) {
+	public static void token(int player) {
 		if (player == 1)
 			c.setColor(Color.red);
 		if (player == 2)
 			c.setColor(Color.yellow);
-		c.fillOval(column, row, 50, 50);
+		c.fillOval(columnCheck(c.readInt()), 440 - rowCheck(), 50, 50);
 	}
 }
