@@ -5,12 +5,12 @@ import java.awt.Color;
 
 /**
  * Description: Runs a 2 player game of Connect 4
- * Date: 10/01/25
+ * Date: 15/01/25
  * @author Luca Tarcea
  */
 public class CulminatingAssignment {
-	
-	
+
+
 	/**
 	 * Entry point to the program.
 	 * @param args
@@ -20,32 +20,42 @@ public class CulminatingAssignment {
 	static int columns = 7;
 	static boolean[][] cells = new boolean[rows][columns];
 
-	
-	public static void main(String[] args) {
+
+	public static void main(String[] args) throws InterruptedException {
 		c = new Console(30, 100, 15, "Connect4");
 		int playerTurn = 1;
-		boolean win = false;
 		boolean running = true;
 		displayGrid();
 		while (running == true) {
+			c.setCursor(1,1);
+			c.setColor(Color.white);
+			c.fillRect(468, 0, 9, 21);
 			c.print("Player " + playerTurn + ". Where would you like to place your token? ");
 			if (placeToken(playerTurn)) {
-				changePlayer(playerTurn);
-			}
-
-			if (win) {
-				c.println("Player " + playerTurn + " wins!");
-				running = false;
+				if (checkWin()) {
+					c.println("Player " + playerTurn + " wins!");
+					running = false;
+					Thread.sleep(1500);
+					c.close();
+				}
+				playerTurn = changePlayer(playerTurn);
+			} else {
+				
+				
+				
+				
+				
 			}
 		}
 	}
-	
-	public static void changePlayer(int player) {
+
+	public static int changePlayer(int player) {
 		if (player == 1) {
 			player = 2;
 		} else {
 			player = 1;
 		}
+		return player;
 	}
 
 	public static void displayColumn(int xValue, int yValue) {
@@ -60,8 +70,8 @@ public class CulminatingAssignment {
 		c.setColour(Color.blue);
 		c.fillRect(5, 55, 500, 430);
 		for (int i = 0; i < x.length; i++) {
-			for (int f = 0; f < y.length; f++)
-				displayColumn(x[i], y[f]);
+			for (int j = 0; j < y.length; j++)
+				displayColumn(x[i], y[j]);
 		}
 	}
 
@@ -78,7 +88,6 @@ public class CulminatingAssignment {
 	public static int checkColumn(int column) {
 		if (column < 8 && column > 0)
 			return column - 1;
-//			return (column - 1)*70 + 20;
 		else
 			return -1;
 	}
@@ -94,13 +103,19 @@ public class CulminatingAssignment {
 			return false;
 		} else {
 			int row = checkRow(column);
-			if ( row == -1) {
+			if (row == -1) {
 				c.print("Error - too many pieces in column");
 				return false;
 			} else {
-				c.fillOval(column, 440 - row, 50, 50);
+				c.fillOval(column*70 + 20, 420 - row*70, 50, 50);
 			}
 		}
+		c.setColor(Color.white);
+		c.fillRect(0, 20, 400, 22);
 		return true;
+	}
+
+	public static boolean checkWin() {
+		return false;
 	}
 }
