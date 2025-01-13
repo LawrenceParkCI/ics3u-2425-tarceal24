@@ -40,11 +40,7 @@ public class CulminatingAssignment {
 				}
 				playerTurn = changePlayer(playerTurn);
 			} else {
-				
-				
-				
-				
-				
+				// c.println("Not a valid option. Try again.");			
 			}
 		}
 	}
@@ -60,7 +56,7 @@ public class CulminatingAssignment {
 
 	public static void displayColumn(int xValue, int yValue) {
 		c.setColour(Color.white);
-		for (int i = 0; i < 6; i++)
+		// for (int i = 0; i < rows; i++)
 			c.fillOval(xValue, yValue, 50, 50);
 	}
 
@@ -69,8 +65,8 @@ public class CulminatingAssignment {
 		int[] y = {70, 140, 210, 280, 350, 420};
 		c.setColour(Color.blue);
 		c.fillRect(5, 55, 500, 430);
-		for (int i = 0; i < x.length; i++) {
-			for (int j = 0; j < y.length; j++)
+		for (int i = 0; i < columns; i++) {
+			for (int j = 0; j < rows; j++)
 				displayColumn(x[i], y[j]);
 		}
 	}
@@ -86,10 +82,10 @@ public class CulminatingAssignment {
 	}
 
 	public static int checkColumn(int column) {
-		if (column < 8 && column > 0)
-			return column - 1;
-		else
+		if (column > columns || column < 1)
 			return -1;
+		else
+			return column - 1;
 	}
 
 	public static boolean placeToken(int player) {
@@ -107,7 +103,7 @@ public class CulminatingAssignment {
 				c.print("Error - too many pieces in column");
 				return false;
 			} else {
-				c.fillOval(column*70 + 20, 420 - row*70, 50, 50);
+				c.fillOval(column*70 + 20, 420 - row*70, 50, 50);	
 			}
 		}
 		c.setColor(Color.white);
@@ -116,6 +112,18 @@ public class CulminatingAssignment {
 	}
 
 	public static boolean checkWin() {
+		int cells1 = new int[rows][columns];
+		for (int i = 0; i < columns - 4; i++) {
+			if (cells1[0][i] == 1 && cells1[0][i+1] == 1 && cells1[0][i+2] == 1 && cells1[0][i+3] == 1) { // 4 in a row
+				return true;
+			} else if (cells1[i][0] == 1 && cells1[i+1][0] == 1 && cells1[i+2][0] == 1 && cells1[i+3][0] == 1){ // 4 in a column
+				return true;
+			} else if (cells1[i][0] == 1 && cells1[i+1][0+1] == 1 && cells1[i+2][0+2] == 1 && cells1[i+3][0+3] == 1) { // 4 diagonal right
+				return true;
+			} else if (cells1[i][3] == 1 && cells1[i-1][3-1] == 1 && cells1[i-2][3-2] == 1 && cells1[i-3][3-3] == 1 && i >= 3) { // 4 diagonal left
+				return true;
+			}
+		}
 		return false;
 	}
 }
