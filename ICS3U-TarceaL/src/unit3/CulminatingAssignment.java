@@ -112,7 +112,7 @@ public class CulminatingAssignment {
 	}
 
 	public static boolean checkWin() {
-		int cells1 = new int[rows][columns];
+		int cells1[][] = new int[rows][columns];
 		for (int i = 0; i < columns - 4; i++) {
 			if (cells1[0][i] == 1 && cells1[0][i+1] == 1 && cells1[0][i+2] == 1 && cells1[0][i+3] == 1) { // 4 in a row
 				return true;
