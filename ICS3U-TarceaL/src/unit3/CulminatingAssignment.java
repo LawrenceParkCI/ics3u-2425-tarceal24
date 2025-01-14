@@ -9,12 +9,10 @@ import java.awt.Color;
  * @author Luca Tarcea
  */
 public class CulminatingAssignment {
-
-
 	/**
 	 * Entry point to the program.
 	 * @param args
-	 */	
+	 */
 	static Console c;
 	static int rows = 6;
 	static int columns = 7;
@@ -25,25 +23,34 @@ public class CulminatingAssignment {
 		c = new Console(30, 100, 15, "Connect4");
 		int playerTurn = 1;
 		boolean running = true;
-		displayGrid();
-		char[] text = {'H', 'E', 'L', 'L', 'O', ' ', 'W', 'O', 'R', 'L', 'D'};
-		c.print("\n");
-		for (int i = 0; i < text.length; i++) {
-			c.print(text[i]);
-			if (text[i] != ' ')
-				Thread.sleep(100);
-
+		String str = "Hello... Would you like to play Connect 4? ";
+		Thread.sleep(500);
+		typeOutput(str);
+		str = c.next();
+		if (str.equalsIgnoreCase("yes")) {
+			str = "Great!";
+			typeOutput(str);
+		} else if (str.equalsIgnoreCase("no")) {
+			str = "Too bad... See you next time.";
+			typeOutput(str);
+			Thread.sleep(1000);
+			c.close();
+		} else {
+			c.print("Error - not a valid response");
 		}
+		str = "Player " + playerTurn + "'s turn. Which column would you like to place your token in? ";
+		displayGrid();
 		while (running == true) {
 			c.setCursor(1,1);
 			c.setColor(Color.white);
 			c.fillRect(621, 0, 9, 21);
-			c.print("Player " + playerTurn + "'s turn. Which column would you like to place your token in? ");
+			typeOutput(str);
 			if (placeToken(playerTurn)) {
 				if (checkWin()) {
-					c.println("Player " + playerTurn + " wins!");
+					str = "Player " + playerTurn + " wins!";
+					typeOutput(str);
 					running = false;
-					Thread.sleep(1500);
+					Thread.sleep(1400);
 					c.close();
 				}
 				playerTurn = changePlayer(playerTurn);
@@ -54,22 +61,21 @@ public class CulminatingAssignment {
 	}
 
 	public static int changePlayer(int player) {
-		if (player == 1) {
+		if (player == 1)
 			player = 2;
-		} else {
+		else
 			player = 1;
-		}
 		return player;
 	}
 
-	public static void displayColumn(int xValue, int yValue) {
+	public static void displayColumn(int column, int row) {
 		c.setColour(Color.white);
-		c.fillOval(xValue, yValue, 50, 50);
+		c.fillOval(column, row, 50, 50);
 	}
 
 	public static void displayGrid() {
-		int[] x = {20, 90, 160, 230, 300, 370, 440};
-		int[] y = {70, 140, 210, 280, 350, 420};
+		int[] column = {20, 90, 160, 230, 300, 370, 440};
+		int[] row = {70, 140, 210, 280, 350, 420};
 		c.setColour(Color.blue);
 		c.fillRect(5, 55, 500, 430);
 		for (int i = 0; i < columns; i++) {
@@ -138,5 +144,15 @@ public class CulminatingAssignment {
 			}
 		}
 		return false;
+	}
+
+	public static void typeOutput(String str) {
+		for (int i = 0; i < str.length(); i++) {
+			c.print(str.charAt(i));
+			if (str.charAt(i) != ' ')
+				Thread.sleep(100);
+			if (str.charAt(i) = '.' || str.charAt(i) = '!')
+				Thread.sleep(500);
+		}
 	}
 }
