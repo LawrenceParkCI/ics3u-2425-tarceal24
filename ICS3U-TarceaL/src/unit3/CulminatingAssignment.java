@@ -19,18 +19,26 @@ public class CulminatingAssignment {
 	static int rows = 6;
 	static int columns = 7;
 	static boolean[][] cells = new boolean[rows][columns];
-
+	static int[][] cells1 = new int[rows][columns];
 
 	public static void main(String[] args) throws InterruptedException {
 		c = new Console(30, 100, 15, "Connect4");
 		int playerTurn = 1;
 		boolean running = true;
 		displayGrid();
+		char[] text = {'H', 'E', 'L', 'L', 'O', ' ', 'W', 'O', 'R', 'L', 'D'};
+		c.print("\n");
+		for (int i = 0; i < text.length; i++) {
+			c.print(text[i]);
+			if (text[i] != ' ')
+				Thread.sleep(100);
+
+		}
 		while (running == true) {
 			c.setCursor(1,1);
 			c.setColor(Color.white);
-			c.fillRect(468, 0, 9, 21);
-			c.print("Player " + playerTurn + ". Where would you like to place your token? ");
+			c.fillRect(621, 0, 9, 21);
+			c.print("Player " + playerTurn + "'s turn. Which column would you like to place your token in? ");
 			if (placeToken(playerTurn)) {
 				if (checkWin()) {
 					c.println("Player " + playerTurn + " wins!");
@@ -56,8 +64,7 @@ public class CulminatingAssignment {
 
 	public static void displayColumn(int xValue, int yValue) {
 		c.setColour(Color.white);
-		// for (int i = 0; i < rows; i++)
-			c.fillOval(xValue, yValue, 50, 50);
+		c.fillOval(xValue, yValue, 50, 50);
 	}
 
 	public static void displayGrid() {
@@ -89,11 +96,11 @@ public class CulminatingAssignment {
 	}
 
 	public static boolean placeToken(int player) {
+		int column = checkColumn(c.readInt());
 		if (player == 1)
 			c.setColor(Color.red);
 		if (player == 2)
 			c.setColor(Color.yellow);
-		int column = checkColumn(c.readInt());
 		if (column == -1) {
 			c.print("Error - column out of bounds");
 			return false;
@@ -103,7 +110,8 @@ public class CulminatingAssignment {
 				c.print("Error - too many pieces in column");
 				return false;
 			} else {
-				c.fillOval(column*70 + 20, 420 - row*70, 50, 50);	
+				c.fillOval(20 + column*70, 420 - row*70, 50, 50);
+				cells1[row][column] = player;
 			}
 		}
 		c.setColor(Color.white);
@@ -112,16 +120,21 @@ public class CulminatingAssignment {
 	}
 
 	public static boolean checkWin() {
-		int cells1 = new int[rows][columns];
 		for (int i = 0; i < columns - 4; i++) {
-			if (cells1[0][i] == 1 && cells1[0][i+1] == 1 && cells1[0][i+2] == 1 && cells1[0][i+3] == 1) { // 4 in a row
-				return true;
-			} else if (cells1[i][0] == 1 && cells1[i+1][0] == 1 && cells1[i+2][0] == 1 && cells1[i+3][0] == 1){ // 4 in a column
-				return true;
-			} else if (cells1[i][0] == 1 && cells1[i+1][0+1] == 1 && cells1[i+2][0+2] == 1 && cells1[i+3][0+3] == 1) { // 4 diagonal right
-				return true;
-			} else if (cells1[i][3] == 1 && cells1[i-1][3-1] == 1 && cells1[i-2][3-2] == 1 && cells1[i-3][3-3] == 1 && i >= 3) { // 4 diagonal left
-				return true;
+			for (int j = 0; j < rows - 1; j++) {
+				if (cells1[j][i] != 0 && cells1[j][i] == cells1[j][i+1] && 
+						cells1[j][i+1] == cells1[j][i+2] && cells1[j][i+2] == cells1[j][i+3]) { // 4 in a row
+					return true;
+				} else if (cells1[j][i] != 0 && cells1[j][i] == cells1[j+1][i] &&
+						cells1[j+1][i] == cells1[j+2][i] && cells1[j+2][i] == cells1[j+3][i]){ // 4 in a column
+					return true;
+				} else if (cells1[j][i] != 0 && cells1[j][i] == cells1[j+1][i+1] &&
+						cells1[j+1][i+1] == cells1[j+2][i+2] && cells1[j+2][i+2] == cells1[j+3][i+3]) { // 4 diagonal up-right/down-left
+					return true;
+				} else if (i > 2 && cells1[j][i] != 0 && cells1[j][i] == cells1[j+1][i-1] &&
+						cells1[j+1][i-1] == cells1[j+2][i-2] && cells1[j+2][i-2] == cells1[j+3][i-3]) { // 4 diagonal up-left/down-right
+					return true;
+				}
 			}
 		}
 		return false;
