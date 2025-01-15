@@ -17,47 +17,67 @@ public class CulminatingAssignment {
 	static int rows = 6;
 	static int columns = 7;
 	static boolean[][] cells = new boolean[rows][columns];
-	static int[][] cells1 = new int[rows][columns];
+	static int[][] cellValue = new int[rows][columns];
 
 	public static void main(String[] args) throws InterruptedException {
 		c = new Console(30, 100, 15, "Connect4");
-		int playerTurn = 1;
-		boolean running = true;
-		String str = "Hello... Would you like to play Connect 4? ";
-		Thread.sleep(500);
-		typeOutput(str);
-		str = c.next();
-		if (str.equalsIgnoreCase("yes")) {
-			str = "Great!";
-			typeOutput(str);
-		} else if (str.equalsIgnoreCase("no")) {
-			str = "Too bad... See you next time.";
-			typeOutput(str);
-			Thread.sleep(1000);
-			c.close();
-		} else {
-			c.print("Error - not a valid response");
-		}
-		str = "Player " + playerTurn + "'s turn. Which column would you like to place your token in? ";
-		displayGrid();
-		while (running == true) {
-			c.setCursor(1,1);
-			c.setColor(Color.white);
-			c.fillRect(621, 0, 9, 21);
-			typeOutput(str);
-			if (placeToken(playerTurn)) {
-				if (checkWin()) {
-					str = "Player " + playerTurn + " wins!";
-					typeOutput(str);
-					running = false;
-					Thread.sleep(1400);
-					c.close();
+		int playerTurn;
+		boolean game, running = true;
+		String str;
+		while (running = true) {
+			startGame();
+			playerTurn = 1;
+			game = true;
+			while (game == true) {
+				str = "Player " + playerTurn + "'s turn. Which column would you like to place your token in? ";
+				c.setCursor(1,1);
+				c.setColor(Color.white);
+				c.fillRect(621, 0, 9, 21);
+				c.print(str);
+				if (placeToken(playerTurn)) {
+					if (checkWin()) {
+						game = false;
+						str = "Player " + playerTurn + " wins! Would you like to play again? ";
+						typeOutput(str);
+						if (!c.readLine().equalsIgnoreCase("yes")) {
+							str = "Thank you for playing :)";
+							typeOutput(str);
+							running = false;
+							Thread.sleep(1400);
+							c.close();
+						}
+						c.clear();
+					}
+					playerTurn = changePlayer(playerTurn);
+				} else {
+					// c.println("Not a valid option. Try again.");			
 				}
-				playerTurn = changePlayer(playerTurn);
-			} else {
-				// c.println("Not a valid option. Try again.");			
 			}
 		}
+	}
+
+	public static void startGame() throws InterruptedException {
+		String userInput = "";
+		while (!(userInput.equalsIgnoreCase("yes") || userInput.equalsIgnoreCase("no"))) {
+			typeOutput("Hello... Would you like to play Connect 4? ");
+			userInput = c.readLine();
+			if (userInput.equalsIgnoreCase("yes")) {
+				typeOutput("Great!");
+				Thread.sleep(1000);
+			} else if (userInput.equalsIgnoreCase("no")) {
+				typeOutput("Too bad... See you next time.");
+				Thread.sleep(1000);
+				c.close();
+			} else {
+				typeOutput("Not a valid response. Try again.");
+				Thread.sleep(1000);
+				c.clear();
+			}
+		}
+		c.setColor(Color.white);
+		c.fillRect(0, 20, 400, 22);
+		c.fillRect(0, 0, 420, 22);
+		displayGrid();
 	}
 
 	public static int changePlayer(int player) {
@@ -74,13 +94,19 @@ public class CulminatingAssignment {
 	}
 
 	public static void displayGrid() {
+		int[][] grid = new int [rows][columns];
+		for (int i = 0; i < columns; i++)
+			for (int j = 0; j < rows; j++)
+				grid[j][i] = 20 + 70*i;
+		
 		int[] column = {20, 90, 160, 230, 300, 370, 440};
 		int[] row = {70, 140, 210, 280, 350, 420};
 		c.setColour(Color.blue);
 		c.fillRect(5, 55, 500, 430);
 		for (int i = 0; i < columns; i++) {
 			for (int j = 0; j < rows; j++)
-				displayColumn(x[i], y[j]);
+//				displayColumn(column[i], row[j]);
+				displayColumn(grid);
 		}
 	}
 
@@ -117,7 +143,7 @@ public class CulminatingAssignment {
 				return false;
 			} else {
 				c.fillOval(20 + column*70, 420 - row*70, 50, 50);
-				cells1[row][column] = player;
+				cellValue[row][column] = player;
 			}
 		}
 		c.setColor(Color.white);
@@ -126,23 +152,19 @@ public class CulminatingAssignment {
 	}
 
 	public static boolean checkWin() {
-<<<<<<< HEAD
-		int cells1[][] = new int[rows][columns];
-=======
->>>>>>> branch 'main' of https://github.com/LawrenceParkCI/ics3u-2425-tarceal24.git
 		for (int i = 0; i < columns - 4; i++) {
 			for (int j = 0; j < rows - 1; j++) {
-				if (cells1[j][i] != 0 && cells1[j][i] == cells1[j][i+1] && 
-						cells1[j][i+1] == cells1[j][i+2] && cells1[j][i+2] == cells1[j][i+3]) { // 4 in a row
+				if (cellValue[j][i] != 0 && cellValue[j][i] == cellValue[j][i+1] && 
+						cellValue[j][i+1] == cellValue[j][i+2] && cellValue[j][i+2] == cellValue[j][i+3]) { // 4 in a row
 					return true;
-				} else if (cells1[j][i] != 0 && cells1[j][i] == cells1[j+1][i] &&
-						cells1[j+1][i] == cells1[j+2][i] && cells1[j+2][i] == cells1[j+3][i]){ // 4 in a column
+				} else if (cellValue[j][i] != 0 && cellValue[j][i] == cellValue[j+1][i] &&
+						cellValue[j+1][i] == cellValue[j+2][i] && cellValue[j+2][i] == cellValue[j+3][i]){ // 4 in a column error
 					return true;
-				} else if (cells1[j][i] != 0 && cells1[j][i] == cells1[j+1][i+1] &&
-						cells1[j+1][i+1] == cells1[j+2][i+2] && cells1[j+2][i+2] == cells1[j+3][i+3]) { // 4 diagonal up-right/down-left
+				} else if (cellValue[j][i] != 0 && cellValue[j][i] == cellValue[j+1][i+1] &&
+						cellValue[j+1][i+1] == cellValue[j+2][i+2] && cellValue[j+2][i+2] == cellValue[j+3][i+3]) { // 4 diagonal up-right/down-left
 					return true;
-				} else if (i > 2 && cells1[j][i] != 0 && cells1[j][i] == cells1[j+1][i-1] &&
-						cells1[j+1][i-1] == cells1[j+2][i-2] && cells1[j+2][i-2] == cells1[j+3][i-3]) { // 4 diagonal up-left/down-right
+				} else if (i > 2 && cellValue[j][i] != 0 && cellValue[j][i] == cellValue[j+1][i-1] &&
+						cellValue[j+1][i-1] == cellValue[j+2][i-2] && cellValue[j+2][i-2] == cellValue[j+3][i-3]) { // 4 diagonal up-left/down-right
 					return true;
 				}
 			}
@@ -150,13 +172,13 @@ public class CulminatingAssignment {
 		return false;
 	}
 
-	public static void typeOutput(String str) {
+	public static void typeOutput(String str) throws InterruptedException {
 		for (int i = 0; i < str.length(); i++) {
 			c.print(str.charAt(i));
 			if (str.charAt(i) != ' ')
-				Thread.sleep(100);
-			if (str.charAt(i) = '.' || str.charAt(i) = '!')
-				Thread.sleep(500);
+				Thread.sleep(30);
+			if (str.charAt(i) == '.' || str.charAt(i) == '!')
+				Thread.sleep(200);
 		}
 	}
 }
