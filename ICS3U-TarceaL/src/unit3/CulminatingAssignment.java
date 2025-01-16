@@ -26,47 +26,14 @@ public class CulminatingAssignment {
 		d = new Console(30, 100, 15, "Text");
 		startGame();
 		c = new Console(30, 100, 15, "Connect4");
-<<<<<<< HEAD
-		int playerTurn = 1;
-		boolean running = true;
-		String str = "Hello... Would you like to play Connect 4? ";
-		Thread.sleep(500);
-		typeOutput(str);
-		str = c.readLine();
-		if (str.equalsIgnoreCase("yes")) {
-			str = "Great!";
-			typeOutput(str);
-		} else if (str.equalsIgnoreCase("no")) {
-			str = "Too bad... See you next time.";
-			typeOutput(str);
-			Thread.sleep(1000);
-			c.close();
-		} else {
-			c.print("Error - not a valid response");
-		}
-		str = "Player " + playerTurn + "'s turn. Which column would you like to place your token in? ";
-		displayGrid();
-		while (running == true) {
-			c.setCursor(1,1);
-			c.setColor(Color.white);
-			c.fillRect(621, 0, 9, 21);
-			typeOutput(str);
-			if (placeToken(playerTurn)) {
-				if (checkWin()) {
-					str = "Player " + playerTurn + " wins!";
-					typeOutput(str);
-					running = false;
-					Thread.sleep(1400);
-					c.close();
-=======
 		while (running = true) {
 			displayGrid();
 			playerTurn = 1;
 			game = true;
 			while (game == true) {
 				d.setCursor(1,1);
-				// d.setColor(Color.white);
-				// d.fillRect(621, 0, 9, 21);
+				d.setColor(Color.white);
+				d.fillRect(621, 0, 9, 21);
 				d.print("Player " + playerTurn + "'s turn. Which column would you like to place your token in? ");
 				if (placeToken(playerTurn)) {
 					if (checkWin()) {
@@ -81,13 +48,12 @@ public class CulminatingAssignment {
 						}
 						typeOutput("Alright. Restarting game.");
 						Thread.sleep(1000);
-						// c.clear();
+						c.clear();
 						d.clear();
 					}
 					playerTurn = changePlayer(playerTurn);
 				} else {
 					// d.println("Not a valid option. Try again.");			
->>>>>>> branch 'main' of https://github.com/LawrenceParkCI/ics3u-2425-tarceal24.git
 				}
 			}
 		}
@@ -135,19 +101,15 @@ public class CulminatingAssignment {
 		for (int i = 0; i < columns; i++)
 			for (int j = 0; j < rows; j++)
 				grid[j][i] = 20 + 70*i;
-		
+
 		int[] column = {20, 90, 160, 230, 300, 370, 440};
 		int[] row = {70, 140, 210, 280, 350, 420};
 		c.setColour(Color.blue);
 		c.fillRect(5, 55, 500, 430);
 		for (int i = 0; i < columns; i++) {
 			for (int j = 0; j < rows; j++)
-<<<<<<< HEAD
 				displayColumn(column[i], row[j]);
-=======
-//				displayColumn(column[i], row[j]);
-				displayColumn(grid[i][j], grid[j][i]);
->>>>>>> branch 'main' of https://github.com/LawrenceParkCI/ics3u-2425-tarceal24.git
+			//				displayColumn(grid[i][j], grid[j][i]);
 		}
 	}
 
@@ -187,8 +149,8 @@ public class CulminatingAssignment {
 				cellValue[row][column] = player;
 			}
 		}
-		// d.setColor(Color.white);
-		// d.fillRect(0, 20, 400, 22);
+		d.setColor(Color.white);
+		d.fillRect(0, 20, 400, 22);
 		return true;
 	}
 
@@ -217,15 +179,9 @@ public class CulminatingAssignment {
 		for (int i = 0; i < str.length(); i++) {
 			d.print(str.charAt(i));
 			if (str.charAt(i) != ' ')
-<<<<<<< HEAD
-				Thread.sleep(100);
-			if (str.charAt(i) == '.' || str.charAt(i) == '!')
-				Thread.sleep(500);
-=======
 				Thread.sleep(30);
 			if (str.charAt(i) == '.' || str.charAt(i) == '!')
 				Thread.sleep(200);
->>>>>>> branch 'main' of https://github.com/LawrenceParkCI/ics3u-2425-tarceal24.git
 		}
 	}
 }
