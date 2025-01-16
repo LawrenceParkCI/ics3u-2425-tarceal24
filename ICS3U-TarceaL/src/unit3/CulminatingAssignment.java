@@ -26,7 +26,7 @@ public class CulminatingAssignment {
 		String str = "Hello... Would you like to play Connect 4? ";
 		Thread.sleep(500);
 		typeOutput(str);
-		str = c.next();
+		str = c.readLine();
 		if (str.equalsIgnoreCase("yes")) {
 			str = "Great!";
 			typeOutput(str);
@@ -80,7 +80,7 @@ public class CulminatingAssignment {
 		c.fillRect(5, 55, 500, 430);
 		for (int i = 0; i < columns; i++) {
 			for (int j = 0; j < rows; j++)
-				displayColumn(x[i], y[j]);
+				displayColumn(column[i], row[j]);
 		}
 	}
 
@@ -126,10 +126,6 @@ public class CulminatingAssignment {
 	}
 
 	public static boolean checkWin() {
-<<<<<<< HEAD
-		int cells1[][] = new int[rows][columns];
-=======
->>>>>>> branch 'main' of https://github.com/LawrenceParkCI/ics3u-2425-tarceal24.git
 		for (int i = 0; i < columns - 4; i++) {
 			for (int j = 0; j < rows - 1; j++) {
 				if (cells1[j][i] != 0 && cells1[j][i] == cells1[j][i+1] && 
@@ -150,12 +146,12 @@ public class CulminatingAssignment {
 		return false;
 	}
 
-	public static void typeOutput(String str) {
+	public static void typeOutput(String str) throws InterruptedException {
 		for (int i = 0; i < str.length(); i++) {
 			c.print(str.charAt(i));
 			if (str.charAt(i) != ' ')
 				Thread.sleep(100);
-			if (str.charAt(i) = '.' || str.charAt(i) = '!')
+			if (str.charAt(i) == '.' || str.charAt(i) == '!')
 				Thread.sleep(500);
 		}
 	}
