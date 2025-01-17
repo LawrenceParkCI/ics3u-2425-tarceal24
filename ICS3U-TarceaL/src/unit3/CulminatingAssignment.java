@@ -195,19 +195,26 @@ public class CulminatingAssignment {
 							&& cellToken[i][j + 1] == cellToken[i][j + 2]
 							&& cellToken[i][j + 2] == cellToken[i][j + 3]) // 4 in a row
 						return true;
-					else if (cellToken[i][j] != 0 && cellToken[i][j] == cellToken[i + 1][j]
+					else if (i < 3 && cellToken[i][j] != 0 && cellToken[i][j] == cellToken[i + 1][j]
 							&& cellToken[i + 1][j] == cellToken[i + 2][j]
 							&& cellToken[i + 2][j] == cellToken[i + 3][j]) // 4 in a column
 						return true;
-				} else {
+				} else  {
 					if (cellToken[i][j] != 0 && cellToken[i][j] == cellToken[i][j - 1]
 							&& cellToken[i][j - 1] == cellToken[i][j - 2]
 							&& cellToken[i][j - 2] == cellToken[i][j - 3]) // 4 in a row
 						return true;
-					else if (cellToken[i][j] != 0 && cellToken[i][j] == cellToken[i + 1][j]
+					else if (i < 3 && cellToken[i][j] != 0 && cellToken[i][j] == cellToken[i + 1][j]
 							&& cellToken[i + 1][j] == cellToken[i + 2][j]
 							&& cellToken[i + 2][j] == cellToken[i + 3][j]) // 4 in a column
 						return true;
+				}
+				if (j > 2 && i > 2) {
+					if (cellToken[i][j] != 0 && cellToken[i][j] == cellToken[i - 1][j - 1]
+							&& cellToken[i - 1][j - 1] == cellToken[i - 2][j - 2]
+							&& cellToken[i - 2][j - 2] == cellToken[i - 3][j - 3]) { // 4 diagonal up-right/down-left
+						return true;
+					}
 				}
 				if (j < 4 && i > 2) {
 					if (cellToken[i][j] != 0 && cellToken[i][j] == cellToken[i - 1][j + 1]
@@ -216,28 +223,24 @@ public class CulminatingAssignment {
 						return true;
 					}
 				}
-				if (j > 2 && i > 2)
-					if (cellToken[i][j] != 0 && cellToken[i][j] == cellToken[i + 1][j - 1]
-							&& cellToken[i + 1][j - 1] == cellToken[i + 2][j - 2]
-							&& cellToken[i + 2][j - 2] == cellToken[i + 3][j - 3]) // 4 diagonal up-left/down-right
-						return true;
 			}
 		}
-		return false;
+			return false;
+			
 	}
 
-	/**
-	 * Description: Prints output one letter at a time
-	 * @param output - A string to be printed
-	 * @throws InterruptedException
-	 */
-	public static void typeOutput(String output) throws InterruptedException {
-		for (int i = 0; i < output.length(); i++) {
-			d.print(output.charAt(i));
-			if (output.charAt(i) != ' ')
-				Thread.sleep(30);
-			if (output.charAt(i) == '.' || output.charAt(i) == '!')
-				Thread.sleep(200);
+		/**
+		 * Description: Prints output one letter at a time
+		 * @param output - A string to be printed
+		 * @throws InterruptedException
+		 */
+		public static void typeOutput(String output) throws InterruptedException {
+			for (int i = 0; i < output.length(); i++) {
+				d.print(output.charAt(i));
+				if (output.charAt(i) != ' ')
+					Thread.sleep(30);
+				if (output.charAt(i) == '.' || output.charAt(i) == '!')
+					Thread.sleep(200);
+			}
 		}
 	}
-}
